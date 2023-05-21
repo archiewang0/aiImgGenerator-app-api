@@ -1,12 +1,18 @@
 # cli
+
 啟動server 
 `npm run start`
+
 ---
+
 開發server
 `npm run dev`
+
 ---
+
 編譯ts檔案
 `npm run watch`
+
 ---
 
 

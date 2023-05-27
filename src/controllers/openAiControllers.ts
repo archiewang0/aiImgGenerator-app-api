@@ -10,16 +10,26 @@ const config = new Configuration({
 
 const openai = new OpenAIApi(config)
 
-const generateImage = async ( req:Request, res:Response)=>{
-    const {prompt} = req.body 
+interface generateImageRequestProps extends Request{
+    body:{
+        prompt: string,
+        n: number
+        size: '256x256' | '512x512' | '1024x1024'
+    }
+}
+
+const generateImage = async ( req:generateImageRequestProps, res:Response)=>{
+    const {prompt, n, size} = req.body 
     console.log('check prompt:', prompt)
-    // const prompt = 'cute baby'
 
     try {
         const response = await openai.createImage({
-            prompt: prompt,
+            prompt,
+            n,
+            size
         })
-        const image_result = response.data.data
+
+        const image_result = response.data.data 
         
         res.status(200).json({
             success: true,

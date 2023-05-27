@@ -5,12 +5,12 @@
 
 ---
 
-開發server
+開發server(當dist檔案經過打包之後 會在觸發nodemon重新啟動server)
 `npm run dev`
 
 ---
 
-編譯ts檔案
+編譯ts檔案(src開發完之後需要watch ts 檔案進行編譯)
 `npm run watch`
 
 ---
